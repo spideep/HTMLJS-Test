@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<html>
 <html>
 
 <head>
 	<meta charset="utf-8" />
 	<title>Webpack App</title>
-	<script src="dist/main.js"></script>
+	<script src="dist/bundle.js"></script>
 	<script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
 	<link rel="stylesheet" href="dist/style.css">
@@ -77,25 +77,75 @@
 				<a href="#" class="infocard__link">
 					<ion-icon name="create"></ion-icon>
 				</a>
-				<h2 class="infocard__title">About</h2>
-				<h3 class="infocard__name">Jessica Parker</h3>
-				<ul class="infocard__info iconedlist">
-					<li class="iconedlist__item iconedlist__item--phone">
-						<ion-icon name="globe"></ion-icon> www.seller.com
-					</li>
-					<li class="iconedlist__item iconedlist__item--address">
-						<ion-icon name="call"></ion-icon> (949) 325 - 68594
-					</li>
-					<li class="iconedlist__item iconedlist__item--address">
-						<ion-icon name="home"></ion-icon> Newport Beach, CA
-					</li>
-				</ul>
+				<form action="" class="form--noedit">
+					<h2 class="infocard__title">About</h2>
+					<h3 class="infocard__name">Jessica Parker</h3>
+					<div class="form-row form-row--inline">
+						<input class="form__input" type="text" name="firstname" value="Jackie" placeholder="First Name" id="">
+						<label class="form__label" for="firstname">First Name</label>
+						<span class="form__text"></span>
+					</div>
+					<div class="form-row form-row--inline">
+						<input class="form__input" type="text" name="lastname" value="Chan" placeholder="Last Name" id="">
+						<label class="form__label" for="lastname">Last Name</label>
+						<span class="form__text"></span>
+					</div>
+					<div class="form-row">
+						<ion-icon name="globe"></ion-icon>
+						<input class="form__input" type="text" name="website" value="www.dsds.com" placeholder="Website" id="">
+						<label class="form__label" for="website">Website</label>
+					</div>
+					<div class="form-row">
+						<ion-icon name="call"></ion-icon>
+						<input class="form__input" type="text" name="phonenumber" value="(511) 2728728" placeholder="Phone Number"
+							id="">
+						<label class="form__label" for="phonenumber">Phone Number</label>
+					</div>
+					<div class="form-row">
+						<ion-icon name="home"></ion-icon>
+						<input class="form__input" type="text" value="Newspor Beach, CA" name="citystate-zip"
+							placeholder="City, State & Zip" id="">
+						<label class="form__label" for="citystatezip">City, State & Zip</label>
+					</div>
+				</form>
+				<form action="" class="form hidden">
+					<h2 class="infocard__title">About</h2>
+					<h3 class="infocard__name">Jessica Parker</h3>
+					<div class="form-row">
+						<input class="form__input" type="text" name="firstname" placeholder="First Name" id="">
+						<label class="form__label" for="firstname">First Name</label>
+					</div>
+					<div class="form-row">
+						<input class="form__input" type="text" name="lastname" placeholder="Last Name" id="">
+						<label class="form__label" for="lastname">Last Name</label>
+					</div>
+					<div class="form-row">
+						<input class="form__input" type="text" name="website" placeholder="Website" id="">
+						<label class="form__label" for="website">Website</label>
+					</div>
+					<div class="form-row">
+						<input class="form__input" type="text" name="phonenumber" placeholder="Phone Number" id="">
+						<label class="form__label" for="phonenumber">Phone Number</label>
+					</div>
+					<div class="form-row">
+						<input class="form__input" type="text" name="citystate-zip" placeholder="City, State & Zip" id="">
+						<label class="form__label" for="citystatezip">City, State & Zip</label>
+					</div>
+					<ul class="infocard__info iconedlist">
+						<li class="iconedlist__item iconedlist__item--phone">
+							<ion-icon name="globe"></ion-icon> www.seller.com
+						</li>
+						<li class="iconedlist__item iconedlist__item--address">
+							<ion-icon name="call"></ion-icon> (949) 325 - 68594
+						</li>
+						<li class="iconedlist__item iconedlist__item--address">
+							<ion-icon name="home"></ion-icon> Newport Beach, CA
+						</li>
+					</ul>
+				</form>
 			</div>
 		</div>
-
 	</div>
-
-
 
 	<script>
 		if ("serviceWorker" in navigator) {

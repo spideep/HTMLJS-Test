@@ -1,5 +1,6 @@
 @import "mixins";
 @import "variables";
+@import "animations";
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 $font-regular: "Open Sans", sans-serif;
@@ -37,6 +38,10 @@ body {
   &__number {
     color: $dark;
   }
+}
+
+.hidden {
+  display: none;
 }
 
 .followers {
@@ -86,3 +91,4 @@ body {
 @import "horizontal-menu";
 @import "infocards";
 @import "iconedlist";
+@import "form";

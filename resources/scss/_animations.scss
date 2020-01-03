@@ -1,0 +1,18 @@
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes labelmove {
+  from {
+    top: 26px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes labelmove {
+  from {
+    top: 26px;
+  }
+  to {
+    top: 0;
+  }
+}
