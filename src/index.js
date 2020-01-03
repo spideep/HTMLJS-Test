@@ -1,2 +1,2 @@
-console.log("hello, world");
 import '../resources/scss/style.scss';
+import '../resources/js/script';
