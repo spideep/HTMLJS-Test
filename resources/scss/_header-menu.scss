@@ -1,0 +1,26 @@
+.headermenu {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+
+  @include for-tablet-portrait-up {
+    top: 22px;
+    right: 22px;
+  }
+
+  a {
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @extend .button;
+  }
+
+  &--horizontal {
+    ul {
+      list-style: none;
+      padding: 0;
+      @include flexbox;
+    }
+  }
+}

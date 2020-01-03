@@ -1,0 +1,53 @@
+.horizontal-menu {
+  list-style: none;
+  @include flexbox;
+  @include justify-content(space-between);
+  background-color: $white;
+  box-shadow: $box-shadow;
+  padding: 0;
+
+  &__item {
+    display: inline-flex;
+  }
+
+  $mlsp: $menu-link-sidepadding - 8;
+
+  &__link {
+    padding-bottom: $menu-link-toppadding;
+    padding-left: $mlsp;
+    padding-right: $mlsp;
+    padding-top: $menu-link-toppadding;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    color: $dark;
+    letter-spacing: -1px;
+
+    @include for-tablet-portrait-up {
+      padding-left: $menu-link-sidepadding;
+      padding-right: $menu-link-sidepadding;
+    }
+
+    &--active:after {
+      content: "";
+      height: $border-width;
+      width: calc(100% - #{$mlsp * 2});
+      bottom: 0;
+      position: absolute;
+      left: $mlsp;
+      background-color: $blue;
+
+      @include for-tablet-portrait-up {
+        width: calc(100% - #{$menu-link-sidepadding * 2});
+        left: $menu-link-sidepadding;
+      }
+    }
+  }
+
+  @include for-tablet-portrait-up {
+    padding-left: 195px;
+    margin-top: -56px;
+    box-shadow: $box-shadow;
+    @include justify-content(flex-start);
+  }
+}

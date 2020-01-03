@@ -1,0 +1,24 @@
+.button {
+  @include for-tablet-portrait-up {
+    border: 1px solid $blue;
+    border-radius: 5px;
+    padding-top: 11px;
+    padding-bottom: 10px;
+    padding-left: 21px;
+    padding-right: 21px;
+  }
+
+  &--gray {
+    border-color: $mid-gray;
+    background-color: $white;
+    color: $mid-darkgray;
+  }
+
+  &--upload {
+      position: absolute;
+      height: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 75px;
+  }
+}

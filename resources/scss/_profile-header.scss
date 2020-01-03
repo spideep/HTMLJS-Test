@@ -1,0 +1,52 @@
+.profile-header {
+  box-sizing: border-box;
+  padding-left: $box-sidepadding;
+  padding-right: $box-sidepadding;
+
+  &__picture {
+    display: block;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__name {
+    text-align: center;
+    font-size: $font-title-size;
+  }
+
+  @include for-tablet-portrait-up {
+    @include flexbox;
+    background-color: $white;
+    padding: #{$box-sidepadding + 3};
+    padding-top: 111px;
+    position: relative;
+    box-shadow: $box-shadow-3;
+    width: auto;
+
+    &__name {
+      text-align: left;
+    }
+
+    &__picture {
+      text-align: left;
+      margin-right: 20px;
+    }
+
+    &__summary {
+      position: relative;
+      width: 100%;
+
+      .reviewsrating {
+        position: absolute;
+        right: 0;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+
+  &__image {
+    box-shadow: $box-shadow-2;
+  }
+}

@@ -1,0 +1,25 @@
+.infocards {
+  margin-top: 13px;
+}
+
+.infocard {
+  padding-left: $box-sidepadding;
+  padding-bottom: $box-sidepadding * 3;
+  padding-top: $box-sidepadding + 3;
+  padding-right: $box-sidepadding;
+  background-color: $white;
+  border-top: #{$border-width / 2} solid $mid-gray;
+  border-bottom: #{$border-width / 2} solid $mid-gray;
+
+  &__title {
+    margin-top: 0;
+    font-weight: normal;
+    color: $mid-darkgray;
+  }
+
+  @include for-tablet-portrait-up {
+    padding-left: #{$box-sidepadding * 2 + 2};
+    padding-right: #{$box-sidepadding * 2 + 2};
+    padding-top: #{$box-sidepadding * 2 + 2};
+  }
+}
