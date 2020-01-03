@@ -1,24 +1,5 @@
 @import "mixins";
-
-$bg-color: #f5f8f9;
-$blue: #007ee5;
-$dark: #3f454a;
-$mid-gray: #d0dce7;
-$semi-darkgray: #a6b0b7;
-$mid-darkgray: #727e88;
-$semi-dark: #63696d;
-$white: #ffffff;
-$box-sidepadding: 19px;
-
-$box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 12px 0px;
-$box-shadow-2: rgba(0, 0, 0, 0.18) 0px 0px 20px 0px;
-$box-shadow-3: rgba(0, 0, 0, 0.08) 0px 0px 20px 0px;
-
-$menu-link-sidepadding: $box-sidepadding;
-$menu-link-toppadding: $box-sidepadding;
-$border-width: 2px;
-
-$font-title-size: 1.3rem;
+@import "variables";
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 $font-regular: "Open Sans", sans-serif;
@@ -31,17 +12,21 @@ body {
   color: $dark;
   background-color: $bg-color;
   font-family: $font-regular;
-  font-size: 13px;
+  font-size: $font-size-default;
   margin: 0;
-  padding-top: 76px;
+  padding-top: $body-padding-top;
 
   @include for-tablet-portrait-up {
-    padding-top: 70px;
+    padding-top: #{$body-padding-top - 6};
   }
 }
 
 .reviewsrating {
   border: 0;
+}
+
+.reviews {
+  padding-left: 5px;
 }
 
 .reviews,
@@ -79,7 +64,7 @@ body {
 }
 
 .container {
-  max-width: 1180px;
+  max-width: $container-max-width;
   margin: auto;
 }
 
