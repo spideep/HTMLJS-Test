@@ -18,6 +18,7 @@ module.exports = {
 						loader: 'sass-loader',
 						options: {
 							implementation: require('sass'),
+							sourceMap: true,
 						},
 					},
 				],
@@ -40,6 +41,16 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'bundle.js'
 	},
+
+	watchOptions: {
+		aggregateTimeout: 300,
+		poll: 1000,
+		ignored: /node_modules/
+	},
+
+	devtool: 'inline-source-map',
+
+	watch: true,
 
 	// Default mode for Webpack is production.
 	// Depending on mode Webpack will apply different things
