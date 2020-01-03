@@ -17,6 +17,20 @@
     color: $mid-darkgray;
   }
 
+  &__link {
+    background-color: $soft-white;
+    color: $mid-darkgray;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 5px;
+    padding-bottom: 6px;
+    right: 30px;
+    position: absolute;
+    font-size: 0.9rem;
+    height: 25px;
+    box-sizing: border-box;
+  }
+
   @include for-tablet-portrait-up {
     padding-left: #{$box-sidepadding * 2 + 2};
     padding-right: #{$box-sidepadding * 2 + 2};

@@ -1,7 +1,7 @@
 .horizontal-menu {
   list-style: none;
   @include flexbox;
-  @include justify-content(space-between);
+  @include justify-content(flex-start);
   background-color: $white;
   box-shadow: $box-shadow;
   padding: 0;
