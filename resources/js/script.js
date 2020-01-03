@@ -18,11 +18,20 @@ ready(() => {
     Array.prototype.forEach.call(editlinks, (el, i) => {
         el.addEventListener('click', (e) => {
             e.preventDefault();
-            el.parentNode.querySelectorAll('form')[0].classList.toggle('form--noedit');
+            el.parentNode.classList.toggle('form--noedit');
         })
     });
 
+    // Form cancel button.
+    let cancelbuttons = document.querySelectorAll('.form .form__actions .form__cancel');
+    Array.prototype.forEach.call(cancelbuttons, (el, i) => {
+        el.addEventListener('click', (e) => {
+            el.parentNode.parentNode.classList.toggle('form--noedit');
+        })
+    })
+
     let activateTab = (e) => {
+        // TODO: Add an effect transition here. Let's make this pretty. 😉
 
         if (e.classList.contains('horizontal-menu__link--active'))
             return;
@@ -45,9 +54,9 @@ ready(() => {
         let infocards = hm.nextElementSibling.querySelectorAll('.infocard');
         Array.prototype.forEach.call(infocards, (el, i) => {
             if (!el.classList.contains(eid)) {
-                el.style.display = 'none';
+                el.classList.remove('infocard--active');
             } else {
-                el.style.display = '';
+                el.classList.add('infocard--active');
             }
         });
     }

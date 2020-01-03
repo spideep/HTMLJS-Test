@@ -1,4 +1,24 @@
 .form {
+  &__actions {
+    display: block;
+    position: absolute;
+    right: 20px;
+  }
+
+  &__cancel {
+    margin-right: 10px;
+  }
+
+  &__cancel,
+  &__save {
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .infocard__link {
+    display: none;
+  }
+
   &-row {
     position: relative;
     height: 50px;
@@ -57,6 +77,14 @@
 
   &--noedit {
     .form__label {
+      display: none;
+    }
+
+    .infocard__link {
+      display: block;
+    }
+
+    .form__actions {
       display: none;
     }
 

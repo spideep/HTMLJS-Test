@@ -10,6 +10,11 @@
   background-color: $white;
   border-top: #{$border-width / 2} solid $mid-gray;
   border-bottom: #{$border-width / 2} solid $mid-gray;
+  display: none;
+
+  &--active {
+    display: block;
+  }
 
   &__title {
     margin-top: 0;
