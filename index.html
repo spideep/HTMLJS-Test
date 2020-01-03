@@ -5,10 +5,95 @@
 	<meta charset="utf-8" />
 	<title>Webpack App</title>
 	<script src="dist/main.js"></script>
+	<script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
 	<link rel="stylesheet" href="dist/style.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+	</style>
 </head>
 
 <body>
+	<div class="profile-header container">
+		<div class="headermenu headermenu--horizontal">
+			<ul>
+				<li class="headermenu__item"><a href="#">Log out</a></li>
+			</ul>
+		</div>
+		<button class="button button--gray button--upload hide-phone">
+			<ion-icon name="camera"></ion-icon> Upload Cover Image
+		</button>
+		<picture class="profile-header__picture">
+			<source media="(max-width: 599px)" srcset="resources/img/profile_image-s.jpg">
+			<source media="(min-width: 600px)" srcset="resources/img/profile_image-b.jpg">
+			<img class="profile-header__image" src="resources/img/profile_image-s.jpg">
+		</picture>
+
+		<div class="profile-header__summary">
+			<h2 class="profile-header__name">Jessica Parker</h2>
+			<ul class="iconedlist">
+				<li class="iconedlist__item iconedlist__item--phone">
+					<ion-icon name="call"></ion-icon> (949) 325 - 68594
+				</li>
+				<li class="iconedlist__item iconedlist__item--address">
+					<ion-icon name="pin"></ion-icon> Newport Beach CA
+				</li>
+			</ul>
+			<div class="reviewsrating">
+				<div class="starredrate">
+					<ion-icon name="star" class="starredrate__item"></ion-icon>
+					<ion-icon name="star" class="starredrate__item"></ion-icon>
+					<ion-icon name="star" class="starredrate__item"></ion-icon>
+					<ion-icon name="star" class="starredrate__item"></ion-icon>
+					<ion-icon name="star-outline" class="starredrate__item"></ion-icon>
+				</div>
+				<div class="reviews">
+					<span class="reviews__number">6</span> Reviews
+				</div>
+			</div>
+			<div class="followers">
+				<ion-icon name="add-circle"></ion-icon> <span class="followers__number">15</span> Followers
+			</div>
+		</div>
+	</div>
+
+	<div class="profile-content container">
+		<ul class="horizontal-menu">
+			<li class="horizontal-menu__item">
+				<a href="" class="horizontal-menu__link horizontal-menu__link--active">ABOUT</a>
+			</li>
+			<li class="horizontal-menu__item">
+				<a href="" class="horizontal-menu__link">SETTINGS</a>
+			</li>
+			<li class="horizontal-menu__item">
+				<a href="" class="horizontal-menu__link">OPTION 1</a>
+			</li>
+			<li class="horizontal-menu__item">
+				<a href="" class="horizontal-menu__link">OPTION 2</a>
+			</li>
+		</ul>
+		<div class="infocards">
+			<div class="infocard">
+				<h2 class="infocard__title">About</h2>
+				<h5 class="infocard__name">Jessica Parker</h5>
+				<ul class="infocard__info iconedlist">
+					<li class="iconedlist__item iconedlist__item--phone">
+						<ion-icon name="link"></ion-icon> (949) 325 - 68594
+					</li>
+					<li class="iconedlist__item iconedlist__item--address">
+						<ion-icon name="call"></ion-icon> Newport Beach CA
+					</li>
+					<li class="iconedlist__item iconedlist__item--address">
+						<ion-icon name="home"></ion-icon> Newport Beach CA
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+
+
 	<script>
 		if ("serviceWorker" in navigator) {
 			window.addEventListener("load", () => {
