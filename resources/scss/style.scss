@@ -81,6 +81,25 @@ body {
   }
 }
 
+%edit-control {
+  background-color: $soft-white;
+  color: $mid-darkgray;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  right: 30px;
+  font-size: 0.9rem;
+  height: 25px;
+  box-sizing: border-box;
+
+  &:hover,
+  &:active {
+    background-color: $blue;
+    color: $white;
+  }
+}
+
 // Components
 
 @import "buttons";
@@ -92,3 +111,4 @@ body {
 @import "infocards";
 @import "iconedlist";
 @import "form";
+@import "popup";

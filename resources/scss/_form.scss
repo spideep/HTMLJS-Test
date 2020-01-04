@@ -29,6 +29,18 @@
     }
   }
 
+  &-control {
+    &__edit {
+      @extend %edit-control;
+      position: static;
+      display: none;
+
+      @include for-tablet-portrait-up {
+        display: inline-block;
+      }
+    }
+  }
+
   &__label {
     text-transform: uppercase;
     color: #a6b0b7;
@@ -82,6 +94,10 @@
 
     .infocard__link {
       display: block;
+
+      @include for-tablet-portrait-up {
+        display: none;
+      }
     }
 
     .form__actions {
