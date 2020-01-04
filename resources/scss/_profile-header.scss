@@ -13,7 +13,7 @@
   &__name {
     text-align: center;
     font-size: $font-title-size;
-    margin-top: 30px;
+    margin-top: 16px;
     margin-bottom: 0;
   }
 
@@ -28,6 +28,7 @@
 
     &__name {
       text-align: left;
+      margin-top: 30px;
     }
 
     &__picture {
