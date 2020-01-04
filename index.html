@@ -30,13 +30,15 @@
 		</picture>
 
 		<div class="profile-header__summary">
-			<h2 class="profile-header__name">Jessica Parker</h2>
+			<h2 class="profile-header__name">
+				<span id="firstname-label"></span> <span id="lastname-label"></span>
+			</h2>
 			<ul class="iconedlist">
 				<li class="iconedlist__item iconedlist__item--phone">
-					<ion-icon name="call"></ion-icon> (949) 325 - 68594
+					<ion-icon name="call"></ion-icon> <span id="phonenumber-label"></span>
 				</li>
 				<li class="iconedlist__item iconedlist__item--address">
-					<ion-icon name="pin"></ion-icon> Newport Beach CA
+					<ion-icon name="pin"></ion-icon> <span id="citystate-zip-label"></span>
 				</li>
 			</ul>
 			<div class="reviewsrating">
@@ -106,7 +108,7 @@
 
 					<div class="form-row form-control">
 						<ion-icon name="globe"></ion-icon>
-						<input class="form__input" type="text" id="website" name="website" value="www.dsds.com"
+						<input class="form__input" type="text" id="website" name="website" value=""
 							placeholder="Website" id="">
 						<span class="form__text"></span>
 						<a href="#" class="form-control__edit">
@@ -117,7 +119,7 @@
 
 					<div class="form-row form-control">
 						<ion-icon name="call"></ion-icon>
-						<input class="form__input" type="text" id="phonenumber" name="phonenumber" value="(511) 2728728"
+						<input class="form__input" type="text" id="phonenumber" name="phonenumber" value=""
 							placeholder="Phone Number" id="">
 						<span class="form__text"></span>
 						<a href="#" class="form-control__edit">
@@ -128,7 +130,7 @@
 
 					<div class="form-row form-control">
 						<ion-icon name="home"></ion-icon>
-						<input class="form__input" type="text" id="citystate-zip" value="Newspor Beach, CA"
+						<input class="form__input" type="text" id="citystate-zip" value=""
 							name="citystate-zip" placeholder="City, State & Zip" id="">
 						<span class="form__text"></span>
 						<a href="#" class="form-control__edit">

@@ -1,3 +1,11 @@
+let person = {
+	firstname: 'Jessica',
+	lastname: 'Parker',
+	address: 'Newport Beach, CA',
+	phonenumber: '(949) 325-68594',
+	website: 'www.seller.com'
+}
+
 let ready = (fn) => {
 	if (document.readyState != 'loading') {
 		fn();
@@ -7,11 +15,25 @@ let ready = (fn) => {
 }
 
 let submitForm = (form) => {
+	/* TODO: Update info using AJAX.
 	let data = new FormData(form);
 	let request = new XMLHttpRequest();
 	request.open('POST', '/my/url', true);
 	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 	request.send(data);
+	*/
+
+	// Update labels.
+	// Alternative: could be filled with AJAX given data.
+	let form__inputs = form.querySelectorAll('.form__input');
+	Array.prototype.forEach.call(form__inputs, (e, i) => {
+		let target_id = '#' + e.id + '-label';
+		console.log(target_id);
+
+		if (document.querySelector(target_id)) {
+			document.querySelector(target_id).innerHTML = e.value;
+		}
+	})
 }
 
 let closepopup = (popup) => {
@@ -48,12 +70,13 @@ let popup = (link, formid) => {
 			let field_id = '#' + el.id;
 			let field_value = popup.querySelector(field_id).value;
 			form.querySelector(field_id).value = field_value;
-			if (form.querySelector(field_id).parentNode.querySelector('.form__text'))
+			if (form.querySelector(field_id).parentNode.querySelector('.form__text')) {
 				form.querySelector(field_id).parentNode.querySelector('.form__text').innerHTML = field_value;
+			}
 		});
 
 		closepopup(popup);
-		// submitForm(form);
+		submitForm(form);
 	});
 
 	cancel_btn.addEventListener('click', (e, i) => {
@@ -61,11 +84,6 @@ let popup = (link, formid) => {
 	});
 
 }
-
-let editfield = (field) => {
-	// openPopup();
-}
-
 
 let activateTab = (e) => {
 	// TODO: Add an effect transition here. Let's make this pretty. 😉
@@ -98,7 +116,31 @@ let activateTab = (e) => {
 	});
 }
 
+let prefill = (person) => {
+	document.querySelector('#firstname-label').innerHTML = person.firstname;
+	document.querySelector('#firstname').value = person.firstname;
+	document.querySelector('#firstname').parentNode.querySelector('.form__text').innerHTML = person.firstname;
+
+	document.querySelector('#lastname-label').innerHTML = person.lastname;
+	document.querySelector('#lastname').value = person.lastname;
+	document.querySelector('#lastname').parentNode.querySelector('.form__text').innerHTML = person.lastname;
+
+	document.querySelector('#phonenumber-label').innerHTML = person.phonenumber;
+	document.querySelector('#phonenumber').value = person.phonenumber;
+	document.querySelector('#phonenumber').parentNode.querySelector('.form__text').innerHTML = person.phonenumber;
+
+	document.querySelector('#citystate-zip-label').innerHTML = person.address;
+	document.querySelector('#citystate-zip').value = person.address;
+	document.querySelector('#citystate-zip').parentNode.querySelector('.form__text').innerHTML = person.address;
+
+	document.querySelector('#website').value = person.website;
+	document.querySelector('#website').parentNode.querySelector('.form__text').innerHTML = person.website;
+}
+
 ready(() => {
+
+	prefill(person);
+
 	// Resizing input inline text controls.
 	let elements = document.querySelectorAll('.form-row--inline input.form__input[type="text"]');
 	Array.prototype.forEach.call(elements, function (el, i) {
