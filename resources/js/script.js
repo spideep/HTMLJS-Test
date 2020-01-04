@@ -19,12 +19,11 @@ let closepopup = (popup) => {
 	popup.classList.remove('popup--active');
 }
 
-let popup = (link, control, formid) => {
+let popup = (link, formid, gp) => {
 	let bc = link.getBoundingClientRect();
 	let fakecontrol = link.parentNode.cloneNode(true);
 
 	let popup = document.getElementById('popup');
-
 	while (popup.querySelector('.popup__content').firstChild)
 		popup.querySelector('.popup__content').removeChild(popup.querySelector('.popup__content').firstChild);
 
@@ -44,10 +43,15 @@ let popup = (link, control, formid) => {
 	let cancel_btn = popup.querySelector('.button--cancel');
 
 	save_btn.addEventListener('click', (e, i) => {
-		let field_id = '#' + popup.querySelector('.popup__content .form__input').id;
-		let field_value = popup.querySelector('.popup__content .form__input').value;
+		let field_ids = popup.querySelectorAll('.popup__content .form__input');
+		Array.prototype.forEach.call(field_ids, (el, i) => {
+			let field_id = '#' + el.id;
+			let field_value = popup.querySelector(field_id).value;
+			form.querySelector(field_id).value = field_value;
+			if (form.querySelector(field_id).parentNode.querySelector('.form__text'))
+				form.querySelector(field_id).parentNode.querySelector('.form__text').innerHTML = field_value;
+		});
 
-		form.querySelector(field_id).value = field_value;
 		closepopup(popup);
 		// submitForm(form);
 	});
@@ -98,7 +102,7 @@ ready(() => {
 	// Resizing input inline text controls.
 	let elements = document.querySelectorAll('.form-row--inline input.form__input[type="text"]');
 	Array.prototype.forEach.call(elements, function (el, i) {
-		el.parentNode.querySelectorAll('.form__text')[0].innerHTML = el.value;
+		el.parentNode.querySelector('.form__text').innerHTML = el.value;
 	});
 
 	// Form edit button.
@@ -135,7 +139,15 @@ ready(() => {
 		let editlinks = el.querySelectorAll('.form-control__edit');
 		Array.prototype.forEach.call(editlinks, (el, i) => {
 			el.addEventListener('click', (e) => {
-				popup(el, el.previousElementSibling, form.id);
+				let gp;
+				if (el.parentNode.classList.contains('form-group')) {
+					// Grouping popup.
+					gp = true;
+				} else {
+					// Single field popup.
+					gp = false;
+				}
+				popup(el, form.id, gp);
 			});
 		})
 	});
