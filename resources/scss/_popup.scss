@@ -10,6 +10,14 @@
   box-sizing: border-box;
   border-radius: 3px;
 
+  &--active {
+    display: none;
+
+    @include for-tablet-portrait-up {
+      display: block;
+    }
+  }
+
   &__buttons {
     padding: 0;
     @include flexbox;
@@ -30,9 +38,6 @@
     height: 100px;
     position: relative;
     overflow: hidden;
-    // box-shadow: 0 16px 10px -17px rgba(0, 0, 0, 0.5);
-    transform: rotate(270deg);
-
     transform: scale(0.3) rotate(270deg);
     left: -65px;
     position: absolute;
@@ -47,7 +52,6 @@
       transform: rotate(45deg);
       top: 75px;
       left: 25px;
-      //   box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
     }
   }
 

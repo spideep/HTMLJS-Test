@@ -16,7 +16,7 @@ let submitForm = (form) => {
 
 let closepopup = (popup) => {
 	popup.querySelector('.popup__content').innerHTML = "";
-	popup.style.display = 'none';
+	popup.classList.remove('popup--active');
 }
 
 let popup = (link, control, formid) => {
@@ -33,7 +33,7 @@ let popup = (link, control, formid) => {
 
 	// Styling.
 	popup.style.left = bc.x + bc.width + 'px';
-	popup.style.display = 'block';
+	popup.classList.add('popup--active');
 	popup.style.top = (bc.y - 10) + 'px';
 
 	/* Set behaviors */
@@ -55,7 +55,6 @@ let popup = (link, control, formid) => {
 	cancel_btn.addEventListener('click', (e, i) => {
 		closepopup(popup);
 	});
-	// })
 
 }
 
@@ -116,6 +115,16 @@ ready(() => {
 	Array.prototype.forEach.call(cancelbuttons, (el, i) => {
 		el.addEventListener('click', (e) => {
 			el.parentNode.parentNode.classList.toggle('form--noedit');
+		})
+	})
+
+	// Form save button.
+	let savebuttons = document.querySelectorAll('.form .form__actions .form__save');
+	Array.prototype.forEach.call(savebuttons, (el, i) => {
+		el.addEventListener('click', (e) => {
+			let form = el.parentNode.parentNode;
+			el.parentNode.parentNode.classList.toggle('form--noedit');
+			submitForm(form)
 		})
 	})
 
