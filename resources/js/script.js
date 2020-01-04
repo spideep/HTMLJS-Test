@@ -148,36 +148,12 @@ ready(() => {
 		})
 	});
 
-	// Form cancel button.
-	let cancelbuttons = document.querySelectorAll('.form .form__actions .form__cancel');
-	Array.prototype.forEach.call(cancelbuttons, (el, i) => {
-		el.addEventListener('click', (e) => {
-			el.parentNode.parentNode.classList.toggle('form--noedit');
-		})
-	})
-
-	// Form save button.
-	let savebuttons = document.querySelectorAll('.form .form__actions .form__save');
-	Array.prototype.forEach.call(savebuttons, (el, i) => {
-		el.addEventListener('click', (e) => {
-			let form = el.parentNode.parentNode;
-
-			let fn_value = form.querySelector('#firstname').value;
-			form.querySelector('#firstname').parentNode.querySelector('.form__text').innerHTML = fn_value;
-
-			let ln_value = form.querySelector('#lastname').value;
-			form.querySelector('#lastname').parentNode.querySelector('.form__text').innerHTML = ln_value;
-
-			form.classList.toggle('form--noedit');
-			submitForm(form)
-		})
-	})
-
-	// Field edit links.
 	let forms = document.querySelectorAll('.form');
 	Array.prototype.forEach.call(forms, (el, i) => {
 		let form = el;
-		let editlinks = el.querySelectorAll('.form-control__edit');
+		
+		// Field edit links.
+		let editlinks = form.querySelectorAll('.form-control__edit');
 		Array.prototype.forEach.call(editlinks, (el, i) => {
 			let field__value = el.parentNode.querySelector('.form__input').value;
 			el.parentNode.querySelector('.form__text').innerHTML = field__value;
@@ -185,7 +161,32 @@ ready(() => {
 			el.addEventListener('click', (e) => {
 				popup(el, form.id);
 			});
-		})
+		});
+
+		// Form save button.
+		let savebuttons = form.querySelectorAll('.form__actions .form__save');
+		Array.prototype.forEach.call(savebuttons, (el, i) => {
+			el.addEventListener('click', (e) => {
+				let form = el.parentNode.parentNode;
+
+				let fn_value = form.querySelector('#firstname').value;
+				form.querySelector('#firstname').parentNode.querySelector('.form__text').innerHTML = fn_value;
+
+				let ln_value = form.querySelector('#lastname').value;
+				form.querySelector('#lastname').parentNode.querySelector('.form__text').innerHTML = ln_value;
+
+				form.classList.toggle('form--noedit');
+				submitForm(form)
+			});
+		});
+
+		// Form cancel button.
+		let cancelbuttons = form.querySelectorAll('.form__actions .form__cancel');
+		Array.prototype.forEach.call(cancelbuttons, (el, i) => {
+			el.addEventListener('click', (e) => {
+				el.parentNode.parentNode.classList.toggle('form--noedit');
+			});
+		});
 	});
 
 	// Horizontal menu behavior.
