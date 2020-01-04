@@ -27,6 +27,16 @@
     position: absolute;
   }
 
+  &__name {
+    display: inline-block;
+
+    .form__text {
+      font-weight: bold;
+      color: $mid-darkgray;
+      font-size: 1rem;
+    }
+  }
+
   @include for-tablet-portrait-up {
     padding-left: #{$box-sidepadding * 2 + 2};
     padding-right: #{$box-sidepadding * 2 + 2};

@@ -10,6 +10,15 @@
   box-sizing: border-box;
   border-radius: 3px;
 
+  .infocard__name {
+    @include flexbox;
+    @include justify-content(space-between);
+
+    .form-row {
+      @include flex(0 1 48%);
+    }
+  }
+
   &--active {
     display: none;
 
