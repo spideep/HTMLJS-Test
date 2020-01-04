@@ -19,7 +19,7 @@ let closepopup = (popup) => {
 	popup.classList.remove('popup--active');
 }
 
-let popup = (link, formid, gp) => {
+let popup = (link, formid) => {
 	let bc = link.getBoundingClientRect();
 	let fakecontrol = link.parentNode.cloneNode(true);
 
@@ -138,16 +138,11 @@ ready(() => {
 		let form = el;
 		let editlinks = el.querySelectorAll('.form-control__edit');
 		Array.prototype.forEach.call(editlinks, (el, i) => {
+			let field__value = el.parentNode.querySelector('.form__input').value;
+			el.parentNode.querySelector('.form__text').innerHTML = field__value;
+
 			el.addEventListener('click', (e) => {
-				let gp;
-				if (el.parentNode.classList.contains('form-group')) {
-					// Grouping popup.
-					gp = true;
-				} else {
-					// Single field popup.
-					gp = false;
-				}
-				popup(el, form.id, gp);
+				popup(el, form.id);
 			});
 		})
 	});
