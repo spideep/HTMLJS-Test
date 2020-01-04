@@ -13,6 +13,8 @@
   &__name {
     text-align: center;
     font-size: $font-title-size;
+    margin-top: 30px;
+    margin-bottom: 0;
   }
 
   @include for-tablet-portrait-up {
@@ -30,17 +32,28 @@
 
     &__picture {
       text-align: left;
-      margin-right: 20px;
+      margin-right: 26px;
     }
 
     &__summary {
       position: relative;
       width: 100%;
 
+      .iconedlist {
+        @include flexbox;
+        @include flex-direction(column);
+
+        &__item:first-child {
+          order: 1;
+        }
+
+        &__item:last-child {
+          order: 0;
+        }
+      }
+
       .reviewsrating {
         position: absolute;
-        right: 0;
-        top: 0;
         right: 0;
       }
     }

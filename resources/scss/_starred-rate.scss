@@ -4,5 +4,9 @@
 
   &__item {
     fill: $blue;
+
+    @include for-tablet-portrait-up {
+      fill: $mid-darkgray;
+    }
   }
 }

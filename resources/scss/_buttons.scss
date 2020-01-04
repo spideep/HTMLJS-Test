@@ -22,8 +22,19 @@
     position: absolute;
     height: auto;
     left: 50%;
+    text-transform: capitalize;
     transform: translateX(-50%);
     top: 75px;
+    color: $mid-darkgray;
+    font-size: 0.9rem;
+
+    ion-icon {
+      margin-right: 10px;
+      vertical-align: middle;
+      font-size: 1.3rem;
+      color: $mid-gray;
+      margin-bottom: 2px;
+    }
   }
 
   &--solid-blue {

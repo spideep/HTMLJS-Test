@@ -6,11 +6,15 @@
   box-shadow: $box-shadow;
   padding: 0;
 
+  $mlsp: $menu-link-sidepadding - 6;
+
   &__item {
     display: inline-flex;
-  }
 
-  $mlsp: $menu-link-sidepadding - 8;
+    &:first-child {
+      margin-left: $mlsp;
+    }
+  }
 
   &__link {
     padding-bottom: $menu-link-toppadding;
@@ -21,25 +25,24 @@
     text-transform: uppercase;
     position: relative;
     color: $dark;
-    letter-spacing: -1px;
 
     @include for-tablet-portrait-up {
-      padding-left: $menu-link-sidepadding;
-      padding-right: $menu-link-sidepadding;
+      padding-left: #{$menu-link-sidepadding - 6};
+      padding-right: #{$menu-link-sidepadding - 6};
     }
 
     &--active:after {
       content: "";
       height: $border-width;
       width: calc(100% - #{$mlsp * 2});
-      bottom: 0;
+      bottom: -1px;
       position: absolute;
       left: $mlsp;
       background-color: $blue;
 
       @include for-tablet-portrait-up {
-        width: calc(100% - #{$menu-link-sidepadding * 2});
-        left: $menu-link-sidepadding;
+        width: calc(100% - #{$mlsp * 2});
+        left: #{$menu-link-sidepadding - 6};
       }
     }
   }

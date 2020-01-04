@@ -59,6 +59,7 @@
     font-family: $font-regular;
     padding-bottom: 6px;
     padding-top: 5px;
+    font-size: 0.9rem;
     position: absolute;
     width: 100%;
     z-index: 0;
@@ -66,7 +67,7 @@
     &:focus {
       outline: none;
 
-      & ~ label {
+      &:placeholder-shown ~ label {
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
         animation-name: labelmove;
@@ -133,6 +134,63 @@
 
     .form__text {
       display: inline;
+    }
+
+    .form-control:not(.form-row--inline) {
+      .form__text {
+        display: none;
+      }
+    }
+
+    @include for-tablet-portrait-up {
+      .form-control .form__input {
+        display: none;
+      }
+
+      .form-control:not(.form-row--inline) {
+        ion-icon {
+          position: relative;
+          z-index: 1;
+        }
+
+        .form__text {
+          background: $white-smoke;
+          padding: 3px 16px;
+          padding-left: 40px;
+          position: relative;
+          left: -40px;
+          margin-right: -44px;
+          display: inline-block;
+          padding-bottom: 9px;
+          padding-top: 10px;
+          padding-right: 24px;
+          height: 37px;
+          box-sizing: border-box;
+          max-height: 37px;
+          vertical-align: middle;
+          font-size: 0.9rem;
+        }
+      }
+
+      .form-row {
+        margin-bottom: 1px;
+      }
+
+      .form-control__edit {
+        width: 43px;
+        height: 37px;
+        max-height: 37px;
+        padding-top: 11px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        overflow: hidden;
+        vertical-align: middle;
+      }
+
+      .form-control__edit ion-icon {
+        margin-right: 0;
+        font-size: 0.9rem;
+      }
     }
   }
 }
