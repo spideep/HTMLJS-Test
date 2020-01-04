@@ -28,8 +28,6 @@ let submitForm = (form) => {
 	let form__inputs = form.querySelectorAll('.form__input');
 	Array.prototype.forEach.call(form__inputs, (e, i) => {
 		let target_id = '#' + e.id + '-label';
-		console.log(target_id);
-
 		if (document.querySelector(target_id)) {
 			document.querySelector(target_id).innerHTML = e.value;
 		}
@@ -141,12 +139,6 @@ ready(() => {
 
 	prefill(person);
 
-	// Resizing input inline text controls.
-	let elements = document.querySelectorAll('.form-row--inline input.form__input[type="text"]');
-	Array.prototype.forEach.call(elements, function (el, i) {
-		el.parentNode.querySelector('.form__text').innerHTML = el.value;
-	});
-
 	// Form edit button.
 	let editlinks = document.querySelectorAll('.infocard__link');
 	Array.prototype.forEach.call(editlinks, (el, i) => {
@@ -169,7 +161,14 @@ ready(() => {
 	Array.prototype.forEach.call(savebuttons, (el, i) => {
 		el.addEventListener('click', (e) => {
 			let form = el.parentNode.parentNode;
-			el.parentNode.parentNode.classList.toggle('form--noedit');
+
+			let fn_value = form.querySelector('#firstname').value;
+			form.querySelector('#firstname').parentNode.querySelector('.form__text').innerHTML = fn_value;
+
+			let ln_value = form.querySelector('#lastname').value;
+			form.querySelector('#lastname').parentNode.querySelector('.form__text').innerHTML = ln_value;
+
+			form.classList.toggle('form--noedit');
 			submitForm(form)
 		})
 	})
