@@ -1,15 +1,10 @@
-# 🚀 Welcome to your new awesome project!
-
-This project has been created using **webpack scaffold**, you can now run
+# HTML JS CSS Test
 
 ```
-npm run build
+npm install
+```
+```
+npm run start
 ```
 
-or
-
-```
-yarn build
-```
-
-to bundle your application
+go to : http://localhost:3000/
