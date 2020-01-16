@@ -135,8 +135,16 @@ let prefill = (person) => {
 	document.querySelector('#website').parentNode.querySelector('.form__text').innerHTML = person.website;
 }
 
+/* Tooltip */
+let showToolTip = (el) => {
+	console.log(el);
+
+
+}
+
 ready(() => {
 
+	var popupstatus = false;
 	prefill(person);
 
 	// Form edit button.
@@ -201,4 +209,67 @@ ready(() => {
 			});
 		})
 	});
+
+	/* Tooltip behavior */
+	let tooltip_els = document.querySelectorAll('.tooltip');
+	Array.prototype.forEach.call(tooltip_els, (el, i) => {
+		el.addEventListener('mouseover', (e, i) => {
+			let tt = document.createElement('span');
+			tt.classList.add('tooltip_baloon');
+			tt.innerHTML = el.title;
+			console.log(tt);
+			el.appendChild(tt);
+		});
+
+		el.addEventListener('mouseout', (e, i) => {
+			let ttbs = el.querySelectorAll('.tooltip_baloon');
+			Array.prototype.forEach.call(ttbs, (el, i) => {
+				el.parentNode.removeChild(el);
+			})
+
+		});
+	});
+
+
+
+	let closePopup = () => {
+		let el = document.querySelector('#logout_popup');
+		el.parentNode.removeChild(el);
+		popupstatus = false;
+	}
+
+	let showPopup = () => {
+		popupstatus = true;
+
+		// crete the popup
+		let btn = document.createElement('button');
+		btn.innerHTML = "CANCEL";
+
+		let popup_div = document.createElement('div');
+		popup_div.classList.add('logout_popup');
+		popup_div.id = "logout_popup";
+
+		popup_div.appendChild(btn);
+		document.body.appendChild(popup_div)
+	}
+
+
+	// Ignore click everywhere
+	document.body.addEventListener('click', (e, i) => {
+		if (popupstatus && e.target != document.querySelector('#logout_popup')) {
+			e.preventDefault();
+			e.stopPropagation();
+			closePopup();
+		}
+	});
+
+	// Logout behavoior
+	let lg_btn = document.querySelector('#logoutbtn');
+	lg_btn.addEventListener('click', (e, i) => {
+		if (!popupstatus) {
+			e.stopPropagation();
+			showPopup();
+		}
+	});
+
 })

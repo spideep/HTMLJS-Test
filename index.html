@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,7 @@
 	<div class="profile-header container">
 		<div class="headermenu headermenu--horizontal">
 			<ul>
-				<li class="headermenu__item"><a href="#">Log out</a></li>
+				<li class="headermenu__item"><a id="logoutbtn" href="#">Log out</a></li>
 			</ul>
 		</div>
 		<button class="button button--gray button--upload hide-phone">
@@ -56,7 +57,9 @@
 				</div>
 			</div>
 			<div class="followers">
-				<ion-icon name="add-circle"></ion-icon> <span class="followers__number">15</span> Followers
+				<a href="#" class="tooltip" title="Followers">
+					<ion-icon name="add-circle"></ion-icon> <span class="followers__number">15</span> Followers
+				</a>
 			</div>
 		</div>
 	</div>
@@ -90,14 +93,14 @@
 					<div class="form-group">
 						<div class="infocard__name">
 							<div class="form-row form-control form-row--inline">
-								<input class="form__input" type="text" id="firstname" name="firstname" value=""
-									placeholder="First Name" id="">
+								<input class="form__input" type="text" id="firstname" name="firstname" value="" placeholder="First Name"
+									id="">
 								<label class="form__label" for="firstname">First Name</label>
 								<span class="form__text"></span>
 							</div>
 							<div class="form-row form-control form-row--inline">
-								<input class="form__input" type="text" id="lastname" name="lastname" value=""
-									placeholder="Last Name" id="">
+								<input class="form__input" type="text" id="lastname" name="lastname" value="" placeholder="Last Name"
+									id="">
 
 								<label class="form__label" for="lastname">Last Name</label>
 								<span class="form__text"></span>
@@ -110,8 +113,7 @@
 
 					<div class="form-row form-control">
 						<ion-icon name="globe"></ion-icon>
-						<input class="form__input" type="text" id="website" name="website" value=""
-							placeholder="Website" id="">
+						<input class="form__input" type="text" id="website" name="website" value="" placeholder="Website" id="">
 						<span class="form__text"></span>
 						<a href="#" class="form-control__edit">
 							<ion-icon name="create"></ion-icon>
