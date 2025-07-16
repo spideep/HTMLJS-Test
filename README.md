@@ -1,5 +1,7 @@
 # HTML JS CSS Test
 
+Educational purpose.
+
 ```
 npm install
 ```
